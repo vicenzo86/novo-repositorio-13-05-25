@@ -1,10 +1,21 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Importar useNavigate
 
 // Supondo que os componentes Select e Button sejam importados de shadcn/ui ou similar
 // import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 // import { Button } from '@/components/ui/button';
 
 const FilterPage: React.FC = () => {
+  const navigate = useNavigate(); // Inicializar useNavigate
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); // Prevenir o comportamento padrão do formulário
+    // Aqui, futuramente, você adicionaria a lógica para coletar os dados do filtro
+    // e passá-los para a página do mapa, talvez via estado global, query params, etc.
+    console.log('Filtros aplicados (lógica a ser implementada)');
+    navigate('/'); // Redirecionar para a página do mapa (Index)
+  };
+
   return (
     <div className="container mx-auto p-4 md:p-8">
       <header className="text-center mb-8">
@@ -13,7 +24,7 @@ const FilterPage: React.FC = () => {
       </header>
 
       <main className="max-w-2xl mx-auto bg-white p-6 md:p-8 shadow-lg rounded-lg">
-        <form>
+        <form onSubmit={handleSubmit}> {/* Adicionar onSubmit ao formulário */}
           <div className="mb-6">
             <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">Cidade</label>
             {/* Substituir pelo componente Select do shadcn/ui */}
