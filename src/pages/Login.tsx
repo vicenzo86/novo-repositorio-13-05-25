@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
@@ -44,8 +43,8 @@ const Login = () => {
         description: 'Bem-vindo ao Obra Alerta Maps!',
       });
       
-      // Redirect to main page
-      navigate('/');
+      // Redirect to filter page after successful login
+      navigate('/filter'); // MODIFIED: Redirect to /filter
     } else {
       toast({
         title: 'Falha no login',
@@ -148,3 +147,4 @@ const Login = () => {
 };
 
 export default Login;
+

@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,6 +7,7 @@ import { AuthProvider } from "@/hooks/useAuth";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
+import FilterPage from "./pages/FilterPage"; // Import FilterPage
 import NotFound from "./pages/NotFound";
 import 'mapbox-gl/dist/mapbox-gl.css';
 
@@ -20,11 +20,22 @@ const App = () => (
         <TooltipProvider>
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={
-              <ProtectedRoute>
-                <Index />
-              </ProtectedRoute>
-            } />
+            <Route 
+              path="/filter" 
+              element={
+                <ProtectedRoute>
+                  <FilterPage />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/" 
+              element={
+                <ProtectedRoute>
+                  <Index /> 
+                </ProtectedRoute>
+              } 
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Toaster />
@@ -36,3 +47,4 @@ const App = () => (
 );
 
 export default App;
+
